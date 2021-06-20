@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
-import { BorderlessButton as Button } from 'react-native-gesture-handler';
+import {
+    FlatList,
+    BorderlessButton as Button,
+} from 'react-native-gesture-handler';
 
 import { styles } from './styles';
 import { getProductsList } from '../../services/api';

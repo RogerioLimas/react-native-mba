@@ -11,46 +11,56 @@ import { styles } from './styles';
 
 import Input from '../../components/Input';
 import { auth } from '../../services/api';
+import { isEmailValid, validateField } from '../../util/validation';
 
 export default function Home({ navigation }: any) {
-    const [email, setEmail] = useState('admin');
-    const [password, setPassword] = useState('admin');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
     async function login(): Promise<any> {
         setIsLoading(true);
 
-        if (email.length < 1) {
-            setIsLoading(false);
-            Alert.alert('Campo Necessário.', 'Informe o endereço de e-mail!');
-            return;
-        }
-
-        if (password.length < 1) {
-            setIsLoading(false);
-            Alert.alert('Campo Necessário.', 'Informe a senha!');
-            return;
-        }
-
-        const result = await auth(email, password);
-
-        if (!result) {
-            setIsLoading(false);
+        if (!isEmailValid(email)) {
             Alert.alert(
-                'Erro!',
-                'E-mail ou Senha Inválidos!\nTente novamente.'
+                'E-mail inválido',
+                'O endereço de e-mail informado não é válido'
             );
             return;
         }
 
-        setIsLoading(false);
-        navigation.reset({
-            index: 0,
-            routes: [{ name: 'Products' }],
-        });
+        if (!validateField(password, 'Informe a senha')) {
+            return;
+        }
+
+        auth(email, password)
+            .then((result) => {
+                setIsLoading(false);
+
+                if (!result) {
+                    setIsLoading(false);
+                    Alert.alert(
+                        'Erro!',
+                        'E-mail ou Senha Inválidos!\nTente novamente.'
+                    );
+                    return;
+                }
+
+                navigation.reset({
+                    index: 0,
+                    routes: [{ name: 'Products' }],
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+                Alert.alert(
+                    'Erro ao Autenticar',
+                    'Houve um erro ao tentar logar.\nContate o administrador.'
+                );
+            });
     }
 
-    function openUserRegistration() : void {
+    function openUserRegistration(): void {
         navigation.reset({
             index: 0,
             routes: [{ name: 'UserRegistration' }],
@@ -65,7 +75,7 @@ export default function Home({ navigation }: any) {
             />
 
             <Input
-                label="E-mail!!"
+                label="E-mail"
                 value={email}
                 onChange={setEmail}
                 keyboardType="email-address"
