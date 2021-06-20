@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../pages/Home';
 import ProductsList from '../pages/ProductsList';
 import UserRegistration from '../pages/UserRegistration';
+import { Text } from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -22,11 +23,14 @@ export default function Routes() {
                         headerShown: false,
                     }}
                 />
-                <Stack.Screen name="Products" component={ProductsList} />
+                <Stack.Screen
+                    name="Products"
+                    component={ProductsList}
+                />
                 <Stack.Screen
                     name="UserRegistration"
                     options={{
-                        title: "Cadastro"
+                        title: 'Cadastro',
                     }}
                     component={UserRegistration}
                 />

@@ -4,17 +4,15 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 22,
+        backgroundColor: '#fff',
     },
     producttitle: {
         fontSize: 20,
-        color: 'red',
+        color: '#ff66c4',
         fontWeight: 'bold',
     },
     card: {
-        paddingTop: 2,
-        paddingLeft: 10,
-        paddingRight: 10,
-        paddingBottom: 2,
+        padding: 20,
         marginBottom: 20,
         fontSize: 14,
         fontWeight: 'bold',
@@ -32,4 +30,7 @@ export const styles = StyleSheet.create({
         color: 'black',
         fontWeight: 'bold',
     },
+    exitButton: {
+        marginRight: 20
+    }
 });

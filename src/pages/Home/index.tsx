@@ -98,8 +98,8 @@ export default function Home({ navigation }: any) {
                 <View>
                     <ActivityIndicator
                         animating={isLoading}
-                        size="small"
-                        color="#00ff00"
+                        size="large"
+                        color="#ff66c4"
                     />
                 </View>
             )}
