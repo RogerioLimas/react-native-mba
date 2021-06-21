@@ -82,8 +82,6 @@ export default function UserRegistration({ navigation }: any) {
 
         addUser(user)
             .then((result) => {
-                console.log('Resultado:');
-                console.log(result);
                 if (!result) {
                     Alert.alert(
                         'Erro ao Cadastrar',

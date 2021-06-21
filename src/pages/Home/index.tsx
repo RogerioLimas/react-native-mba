@@ -26,10 +26,13 @@ export default function Home({ navigation }: any) {
                 'E-mail inválido',
                 'O endereço de e-mail informado não é válido'
             );
+            setIsLoading(false);
+
             return;
         }
 
         if (!validateField(password, 'Informe a senha')) {
+            setIsLoading(false);
             return;
         }
 
@@ -43,6 +46,7 @@ export default function Home({ navigation }: any) {
                         'Erro!',
                         'E-mail ou Senha Inválidos!\nTente novamente.'
                     );
+                    setIsLoading(false);
                     return;
                 }
 
@@ -53,6 +57,7 @@ export default function Home({ navigation }: any) {
             })
             .catch((error) => {
                 console.error(error);
+                setIsLoading(false);
                 Alert.alert(
                     'Erro ao Autenticar',
                     'Houve um erro ao tentar logar.\nContate o administrador.'
