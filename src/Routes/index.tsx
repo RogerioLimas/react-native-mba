@@ -6,7 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../pages/Home';
 import ProductsList from '../pages/ProductsList';
 import UserRegistration from '../pages/UserRegistration';
-import { Text } from 'react-native';
+import EasterEgg from '../pages/EasterEgg';
+
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,14 @@ export default function Routes() {
                     }}
                     component={UserRegistration}
                 />
+                <Stack.Screen
+                    name="EasterEgg"
+                    options={{
+                        headerShown: false
+                    }}
+                    component={EasterEgg}
+                />
+                
             </Stack.Navigator>
         </NavigationContainer>
     );

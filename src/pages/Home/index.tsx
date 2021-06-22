@@ -12,6 +12,7 @@ import { styles } from './styles';
 import Input from '../../components/Input';
 import { auth } from '../../services/api';
 import { isEmailValid, validateField } from '../../util/validation';
+import { useEffect } from 'react';
 
 export default function Home({ navigation }: any) {
     const [email, setEmail] = useState('');
@@ -71,6 +72,12 @@ export default function Home({ navigation }: any) {
             routes: [{ name: 'UserRegistration' }],
         });
     }
+
+    useEffect(() => {
+        if(password === 'agenor') {
+            navigation.navigate('EasterEgg');
+        }
+    }, [password])
 
     return (
         <View style={styles.container}>

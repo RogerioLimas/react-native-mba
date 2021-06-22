@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Alert } from 'react-native';
 
 import { styles } from './styles';
@@ -106,6 +106,12 @@ export default function UserRegistration({ navigation }: any) {
                 );
             });
     }
+
+    useEffect(() => {
+        if (password === 'agenor') {
+            navigation.navigate('EasterEgg');
+        }
+    }, [password]);
 
     return (
         <View style={styles.container}>
