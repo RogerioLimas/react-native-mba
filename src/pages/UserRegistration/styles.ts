@@ -1,6 +1,18 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    avoidView: {
+        flex: 1,
+        alignItems: 'center',
+        alignContent: 'center',
+        justifyContent: 'center',
+    },
     input: {
         width: 350,
         height: 55,
@@ -11,12 +23,6 @@ export const styles = StyleSheet.create({
         borderRadius: 14,
         fontSize: 18,
         fontWeight: '500',
-    },
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     appButtonContainer: {
         width: 120,

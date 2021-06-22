@@ -6,6 +6,7 @@ import {
     TouchableOpacity,
     ActivityIndicator,
     Alert,
+    KeyboardAvoidingView,
 } from 'react-native';
 import { styles } from './styles';
 
@@ -74,57 +75,59 @@ export default function Home({ navigation }: any) {
     }
 
     useEffect(() => {
-        if(password === 'agenor') {
+        if (password === 'agenor') {
             navigation.navigate('EasterEgg');
         }
-    }, [password])
+    }, [password]);
 
     return (
-        <View style={styles.container}>
-            <Image
-                style={styles.logo}
-                source={require('../../../assets/GOGO.gif')}
-            />
+        <KeyboardAvoidingView behavior="position" style={styles.avoidView}>
+                <View style={styles.container}>
+                <Image
+                    style={styles.logo}
+                    source={require('../../../assets/GOGO.gif')}
+                />
 
-            <Input
-                label="E-mail"
-                value={email}
-                onChange={setEmail}
-                keyboardType="email-address"
-            />
+                <Input
+                    label="E-mail"
+                    value={email}
+                    onChange={setEmail}
+                    keyboardType="email-address"
+                />
 
-            <Input
-                label="Senha"
-                value={password}
-                onChange={setPassword}
-                isPassword
-            />
+                <Input
+                    label="Senha"
+                    value={password}
+                    onChange={setPassword}
+                    isPassword
+                />
 
-            {!isLoading ? (
-                <View>
-                    <TouchableOpacity
-                        style={styles.appButtonContainer}
-                        onPress={login}
-                    >
-                        <Text style={styles.appButtonText}>Login</Text>
-                    </TouchableOpacity>
+                {!isLoading ? (
+                    <View>
+                        <TouchableOpacity
+                            style={styles.appButtonContainer}
+                            onPress={login}
+                        >
+                            <Text style={styles.appButtonText}>Login</Text>
+                        </TouchableOpacity>
 
-                    <TouchableOpacity
-                        style={styles.appButtonContainer}
-                        onPress={openUserRegistration}
-                    >
-                        <Text style={styles.appButtonText}>Registrar</Text>
-                    </TouchableOpacity>
-                </View>
-            ) : (
-                <View>
-                    <ActivityIndicator
-                        animating={isLoading}
-                        size="large"
-                        color="#ff66c4"
-                    />
-                </View>
-            )}
+                        <TouchableOpacity
+                            style={styles.appButtonContainer}
+                            onPress={openUserRegistration}
+                        >
+                            <Text style={styles.appButtonText}>Registrar</Text>
+                        </TouchableOpacity>
+                    </View>
+                ) : (
+                    <View>
+                        <ActivityIndicator
+                            animating={isLoading}
+                            size="large"
+                            color="#ff66c4"
+                        />
+                    </View>
+                )}
         </View>
+            </KeyboardAvoidingView>
     );
 }

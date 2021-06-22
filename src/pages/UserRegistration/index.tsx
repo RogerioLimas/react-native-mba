@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Alert } from 'react-native';
+import { View, Text, Alert, KeyboardAvoidingView } from 'react-native';
 
 import { styles } from './styles';
 import Input from '../../components/Input';
@@ -114,41 +114,43 @@ export default function UserRegistration({ navigation }: any) {
     }, [password]);
 
     return (
-        <View style={styles.container}>
-            <Input label="Nome Completo" value={name} onChange={setName} />
-            <Input
-                label="Idade"
-                value={age}
-                onChange={setAge}
-                keyboardType="number-pad"
-            />
-            <Input label="Endereço" value={address} onChange={setAddress} />
-            <Input
-                label="E-mail"
-                value={email}
-                onChange={setEmail}
-                keyboardType="email-address"
-            />
-            <Input
-                label="Senha"
-                value={password}
-                onChange={setPassword}
-                isPassword
-            />
+        <KeyboardAvoidingView behavior="position" style={styles.avoidView}>
+            <View style={styles.container}>
+                <Input label="Nome Completo" value={name} onChange={setName} />
+                <Input
+                    label="Idade"
+                    value={age}
+                    onChange={setAge}
+                    keyboardType="number-pad"
+                />
+                <Input label="Endereço" value={address} onChange={setAddress} />
+                <Input
+                    label="E-mail"
+                    value={email}
+                    onChange={setEmail}
+                    keyboardType="email-address"
+                />
+                <Input
+                    label="Senha"
+                    value={password}
+                    onChange={setPassword}
+                    isPassword
+                />
 
-            <TouchableOpacity
-                style={styles.appButtonContainer}
-                onPress={onSubmit}
-            >
-                <Text style={styles.appButtonText}>Cadastrar</Text>
-            </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.appButtonContainer}
+                    onPress={onSubmit}
+                >
+                    <Text style={styles.appButtonText}>Cadastrar</Text>
+                </TouchableOpacity>
 
-            <TouchableOpacity
-                style={styles.appButtonContainer}
-                onPress={goHome}
-            >
-                <Text style={styles.appButtonText}>Cancelar</Text>
-            </TouchableOpacity>
-        </View>
+                <TouchableOpacity
+                    style={styles.appButtonContainer}
+                    onPress={goHome}
+                >
+                    <Text style={styles.appButtonText}>Cancelar</Text>
+                </TouchableOpacity>
+            </View>
+        </KeyboardAvoidingView>
     );
 }

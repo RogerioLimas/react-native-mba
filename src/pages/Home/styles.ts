@@ -8,12 +8,18 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#FFF',
     },
+    avoidView: {
+        flex: 1,
+        alignItems: 'center',
+        alignContent: 'center',
+        justifyContent: 'center',
+    },
     logo: {
         height: Dimensions.get('window').width,
         width: Dimensions.get('window').width,
     },
     appButtonContainer: {
-        width: 100,
+        width: 120,
         backgroundColor: '#ff66c4',
         borderRadius: 10,
         paddingVertical: 10,
