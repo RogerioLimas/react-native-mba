@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         alignContent: 'center',
         justifyContent: 'center',
+        backgroundColor: '#fff',
     },
     logo: {
         height: Dimensions.get('window').width,

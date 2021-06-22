@@ -64,12 +64,16 @@ export default function UserRegistration({ navigation }: any) {
             if (isNaN(user.age)) {
                 Alert.alert(
                     'Idade inválida',
-                    'Informe somente números no campo "Idade"'
+                    'Informe somente números.'
                 );
+                return;
             }
 
-            if (user.age < 1) {
-                Alert.alert('Idade inválida', 'Informe uma idade válida');
+            if (user.age < 18) {
+                Alert.alert(
+                    'Idade inválida',
+                    'Informe uma idade válida.\nA idade deve ser pelo menos 18 anos.'
+                );
                 return;
             }
         } catch (error) {
@@ -114,7 +118,7 @@ export default function UserRegistration({ navigation }: any) {
     }, [password]);
 
     return (
-        <KeyboardAvoidingView behavior="position" style={styles.avoidView}>
+        <KeyboardAvoidingView style={styles.avoidView}>
             <View style={styles.container}>
                 <Input label="Nome Completo" value={name} onChange={setName} />
                 <Input

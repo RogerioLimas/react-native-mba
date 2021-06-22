@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         alignContent: 'center',
         justifyContent: 'center',
+        backgroundColor: '#fff',
     },
     input: {
         width: 350,

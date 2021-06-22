@@ -81,7 +81,7 @@ export default function Home({ navigation }: any) {
     }, [password]);
 
     return (
-        <KeyboardAvoidingView behavior="position" style={styles.avoidView}>
+        <KeyboardAvoidingView style={styles.avoidView}>
                 <View style={styles.container}>
                 <Image
                     style={styles.logo}
